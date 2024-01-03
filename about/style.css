@@ -1,0 +1,217 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body,
+.Container {
+	height: 100%;
+	font-family: "Times New Roman";
+}
+
+body {
+	background-color: #ffeaba;
+}
+
+.btn {
+	border-radius: 0;
+}
+
+a:link,
+a:hover,
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+a:link.white,
+a:hover.white,
+a:visited.white {
+	text-decoration: none;
+	color: #fff;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 3.5rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+.min-100 {
+	min-height: 100%;
+}
+
+
+/* SPACING */
+.no-gutter {
+	margin-right: 0;
+	margin-left: 0;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+/* NAVBAR */
+.hero-logo {
+	position: fixed;
+	margin: 2em;
+	mix-blend-mode: difference;
+	z-index: 2;
+}
+
+.hero-logo img {
+	width: 10%;
+	height: 10%;
+}
+
+.menu-toggle {
+	position: fixed;
+	right: 0;
+	margin: 2em;
+	color: #fff0ced6;
+	mix-blend-mode: difference;
+	z-index: 2;
+}
+
+.menu-toggle ion-icon {
+	font-style: 16px;
+}
+
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background: #5a2922;
+	z-index: 1;
+	opacity: 0;
+}
+
+.overlay ion-icon {
+	position: fixed;
+	right: 0;
+	margin: 2em;
+	color: #fff0ced6;
+}
+
+.overlay ul {
+	position: absolute;
+	top: 50%;
+	left: 30%;
+	transform: translate(-50%, -50%);
+	list-style: none;
+}
+
+.overlay ul li {
+	font-size: 84px;
+}
+
+.overlay ul li a {
+	color: transparent;
+	-webkit-text-stroke: 1px #fff0ced6;
+	font-family: "Times New Roman";
+	text-transform: uppercase !important;
+}
+
+.overlay ul li a:hover {
+	text-decoration: none;
+	color: #fff0ced6;
+}
+
+/* HALF-PAGE */
+.Container:before {
+	content: '';
+	height: 100%;
+	float: left;
+}
+
+.Content {
+	position: relative;
+	z-index: 1;
+}
+
+.Content:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.Wrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: #000;
+	background-color: #ffeaba;
+}
+
+.LeftContent {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.RightContent {
+	overflow: auto;
+}
+
+.RightContent p{
+	color: #000;
+	font-family: "Times New Roman";
+	font-size: 1.2rem;
+}
+
+.split-image-left {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
+.background-1 {
+	background-image: url("/assets/viviennewestwood/11.jpg");
+}
+
+.split-image-right {
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+}
+
+.signature {
+	padding-top: 2rem;
+	height: 6rem;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 1200px) {
+	.Wrapper>div {
+		height: 100%;
+	}
+}
+
+@media (max-width: 900px) {
+	.overlay ul li {
+		font-size: 30px;
+		padding: 10px 0;
+	}
+}
+
+@media (max-width: 530px) {
+	h1 {
+		font-size: 2.5rem;
+	}
+	.RightContent p {
+		font-size: 1rem;
+	}
+	#block {
+		display: none;
+	}
+}

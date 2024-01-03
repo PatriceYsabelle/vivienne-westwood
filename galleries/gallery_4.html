@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runway 4 - Anglophilia </title>
+    <!-- ANIMEJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Cormorant:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet" />
+
+    <!-- IONICONS -->
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #222222;
+        font-family: 'Times New Roman', Times, serif;
+        color: #c9c9c9;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* NAVBAR */
+    .hero-logo {
+        position: fixed;
+        margin: 2em;
+        mix-blend-mode: difference;
+        z-index: 1;
+    }
+
+    .hero-logo img {
+        width: 10%;
+        height: 10%;
+    }
+
+    .menu-toggle {
+        position: fixed;
+        right: 0;
+        margin: 2em;
+        color: white;
+        mix-blend-mode: difference;
+        z-index: 1;
+    }
+
+    .menu-toggle ion-icon {
+        font-style: 16px;
+    }
+
+    .overlay {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #222222;
+        z-index: 1;
+        opacity: 0;
+    }
+
+    .overlay ion-icon {
+        position: fixed;
+        right: 0;
+        margin: 2em;
+        color: white;
+    }
+
+    .overlay ul {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+    }
+
+    .overlay ul li {
+        font-size: 84px;
+    }
+
+    .overlay ul li a {
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+        font-family: "Times New Roman";
+        text-transform: uppercase !important;
+    }
+
+    .overlay ul li a:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    .header {
+        text-align: center;
+        padding: 5em;
+    }
+
+    .header h1 {
+        text-transform: uppercase;
+        font-size: clamp(3rem, 1rem + 10vw, 5rem);
+    }
+
+    .header span {
+        font-style: italic;
+        -webkit-text-fill-color: #1d1c1600;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #c9c9c9;
+    }
+
+    /* SIMPLE GRID CONTAINER */
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 8%;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: drop-shadow(5px 5px 2px #000000bd);
+    }
+
+    /* ANIMATION */
+    .fadeInUp {
+        animation: fadeInUp 1s ease backwards;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            transform: translate(0px, 20px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0px, 0);
+            opacity: 1;
+        }
+    }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 900px) {
+        .overlay ul li {
+            font-size: 30px;
+            padding: 10px 0;
+        }
+    }
+    @media (max-width: 768px) {
+        .header {
+            padding: 10em 3em 5em 3em;
+        }
+        .header h1 {
+            font-size: clamp(3rem, 1rem + 10vw, 4rem);
+        }
+        .gallery {
+            grid-gap: 6em;
+        }
+    }
+    @media (max-width: 412px) {
+        .header {
+            padding: 9em 3em 5em 3em;
+        }
+        .header h1 {
+            font-size: clamp(1rem, 1rem + 10vw, 2rem);
+        }
+        .gallery img{
+            width: 95%;
+        }
+        .container {
+            padding: 60px 8%;
+        }
+    }
+</style>
+<body>
+    <!-- LOGO -->
+    <div class="hero-logo">
+        <a href="/index.html">
+            <img src="/Orb Logo.png" alt="Orb Logo">
+          </a>
+    </div>
+
+    <!-- TOGGLE BUTTON -->
+    <div class="menu-toggle">
+        <ion-icon name="menu"></ion-icon>
+    </div>
+
+    <!-- NAVBAR OVERLAY -->
+    <div class="overlay">
+        <div class="close-btn">
+            <ion-icon name="close"></ion-icon>
+        </div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="/index.html">Home</a>
+                </li>
+                <li>
+                    <a href="/about/about.html">About</a>
+                </li>
+                <li>
+                    <a href="/runway/runways.html">Runways</a>
+                </li>
+                <li>
+                    <a href="/contactus/contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- CONTAINER -->
+    <div class="wrap fadeInUp" style="animation-delay:2s;">
+        <section class="header">
+            <h1>Fall of 2002-03 - <span>Anglophilia</span></h1>
+        </section>
+        <!-- GRID CONTAINER -->
+        <div class="container">
+            <div class="gallery">
+                <img src="/assets/anglophilia/43.jpg">
+                <img src="/assets/anglophilia/44.jpg">
+                <img src="/assets/anglophilia/45.jpg">
+                <img src="/assets/anglophilia/46.jpg">
+                <img src="/assets/anglophilia/47.jpg">
+                <img src="/assets/anglophilia/48.jpg">
+                <img src="/assets/anglophilia/49.jpg">
+                <img src="/assets/anglophilia/50.jpg">
+            </div>
+        </div>
+    </div>
+    <script>
+        // GSAP & TWEENMAX CODE
+        var t1 = new TimelineMax({ paused: true });
+
+        TweenMax.from(".hero-logo", 2, {
+            y: 20,
+            opacity: 0,
+            ease: Expo.easeInOut,
+            delay: 1
+        });
+
+        TweenMax.from(".menu-toggle", 2, {
+            y: 20,
+            opacity: 0,
+            ease: Expo.easeInOut,
+            delay: 1.2
+        });
+
+        TweenMax.staggerFrom(
+
+            ".media ul li",
+            2,
+            {
+                y: 20,
+                opacity: 0,
+                ease: Expo.easeInOut,
+                delay: 1.6
+            },
+            0.1
+        );
+
+        t1.to(".overlay", 1, {
+            opacity: 1,
+            ease: Expo.easeInOut
+        });
+
+        t1.staggerFrom(
+            ".menu ul li",
+            1,
+            { y: 100, opacity: 0, ease: Expo.easeOut },
+            0.1
+        );
+
+        t1.reverse();
+        $(document).on("click", ".menu-toggle", function () {
+            t1.reversed(!t1.reversed());
+        });
+
+        $(document).on("click", ".close-btn", function () {
+            t1.reversed(!t1.reversed());
+        });
+
+        t1.reverse();
+        $(document).on("click", "li", function () {
+            t1.reversed(!t1.reversed());
+        });
+    </script>
+
+</body>
+
+</html>
